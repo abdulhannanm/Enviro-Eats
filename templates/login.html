@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    {% for msg in messages %}
+        <p class="flash" style="text-align: center; color: white; font-weight: bold;">{{msg}}</p>
+    {% endfor %}
+{% endif %}
+{% endwith %}
+  
+  <head>
+    <title>{% block title %}Register{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/secondary.css') }}">
+    <script>
+    const button = document.querySelector('.btn')
+    const form   = document.querySelector('.form')
+
+    button.addEventListener('click', function() {
+    form.classList.add('form--no') 
+    });
+    </script>
+  </head>
+  <body>
+        <div class="user">
+                <header class="user__header">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+                    <h1 class="user__title">CaloriePrint Login</h1>
+                </header>
+                
+                <form class="form" action="#" method="post">
+                    <div class="form__group">
+                        <input type="email" required placeholder="Email" name="email" class="form__input"  value="{{request.form.email}}"/>
+                    </div>
+                    
+                    <div class="form__group">
+                        <input type="text" required placeholder="Password" name="password" class="form__input" value="{{request.form.password}}"/>
+                    </div>
+                    
+                    <button class="btn" type="submit">Login</button>
+                </form>
+            </div>
+
+  </body>
+{% endblock %}
