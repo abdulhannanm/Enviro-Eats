@@ -8,12 +8,9 @@ from wtforms import SubmitField
 import os
 
 
-
-
 app = Flask(__name__)
 app.secret_key = "appathon"
 app.permanent_session_lifetime = timedelta(days=5)
-
 
 
 app.config["MYSQL_HOST"] = 'localhost'
@@ -29,6 +26,7 @@ photos = UploadSet("photos", IMAGES)
 configure_uploads(app, photos)
 res = []
 
+
 class UploadForm(FlaskForm):
     photo = FileField(
         validators=[
@@ -37,7 +35,6 @@ class UploadForm(FlaskForm):
         ]
     )
     submit = SubmitField("Upload")
-
 
 
 @app.route('/', methods=["GET", "POST"])
@@ -51,19 +48,22 @@ def home():
         else:
             file_url = None
             print("not working")
-        return render_template("loggedin.html", username = session["username"], form = form, file_url = file_url)
+        return render_template("loggedin.html", username=session["username"], form=form, file_url=file_url)
     else:
         return render_template("index.html")
     return render_template("index.html")
+
 
 @app.route('/about', methods=['GET', 'POST'])
 def about():
     return render_template("generic.html")
 
+
 @app.route('/popreg')
 def popreg():
     session.pop("registered", None)
     return redirect(url_for("home"))
+
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -77,7 +77,8 @@ def register():
         email = request.form["email"]
         password = request.form["password"]
         cursor = mysql.connection.cursor()
-        cursor.execute(''' INSERT INTO user_info(first, last, gmail, password) VALUES(%s, %s, %s, %s) ''', (first, last, email, password))
+        cursor.execute(''' INSERT INTO user_info(first, last, gmail, password) VALUES(%s, %s, %s, %s) ''',
+                       (first, last, email, password))
         mysql.connection.commit()
         session["registered"] = True
         print("in session")
@@ -99,7 +100,7 @@ def get_file(filename):
 
 @app.route("/logout")
 def logout():
-    session.pop("loggedin", None) 
+    session.pop("loggedin", None)
     session.pop("username", None)
     return redirect(url_for("home"))
 
@@ -115,7 +116,8 @@ def login():
             email = request.form["email"]
             password = request.form["password"]
             cursor = mysql.connection.cursor()
-            cursor.execute("SELECT * FROM user_info WHERE gmail=%s AND password=%s", (email, password,))
+            cursor.execute(
+                "SELECT * FROM user_info WHERE gmail=%s AND password=%s", (email, password,))
             record = cursor.fetchone()
             rec_list = list(record.keys())
             val_list = list(record.values())
@@ -131,7 +133,8 @@ def login():
                 print("Retry")
         else:
             print("please register")
-    return render_template("login.html", msg = msg)
+    return render_template("login.html", msg=msg)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
