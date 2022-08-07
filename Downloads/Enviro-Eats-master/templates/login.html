@@ -1,0 +1,71 @@
+ {% block content %}
+
+
+<head>
+    <title>{% block title %}Login{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/secondary.css') }}">
+    <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}" /></noscript>
+    <script>
+        const button = document.querySelector('.btn')
+        const form = document.querySelector('.form')
+
+        button.addEventListener('click', function() {
+            form.classList.add('form--no')
+        });
+    </script>
+</head>
+
+<body class="is-preload">
+
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1><a href="/" style="color: white; text-decoration: none; letter-spacing: 2px; font-size: 15px; font-weight: bold;">ENVIROEATS</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li class="special">
+                        <a href="#menu" class="menuToggle" style="text-decoration: none;"><span>Menu</span></a>
+                        <div id="menu">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/register">Register</a></li>
+                                <li><a href="/login">Login</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+    <div class="user">
+        <header class="user__header">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
+            <h1 class="user__title">EnviroEats Login</h1>
+        </header>
+
+        <form class="form" action="#" method="post">
+            <div class="form__group">
+                <input type="email" required placeholder="Email" name="email" class="form__input" value="{{request.form.email}}" />
+            </div>
+
+            <div class="form__group">
+                <input type="password" required placeholder="Password" name="password" class="form__input" value="{{request.form.password}}" />
+            </div>
+
+            <button class="btn" type="submit">Login</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrolly.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+
+</body>
+{% endblock %}

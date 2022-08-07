@@ -1,0 +1,167 @@
+{% block content %}
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>{% block title %}EnviroEats{% endblock %}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+    <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}" /></noscript>
+</head>
+
+<body class="landing is-preload">
+
+    <!-- Page Wrapper -->
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <h1><a>EnviroEats</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li class="special">
+                        <a href="#menu" class="menuToggle"><span>Menu</span></a>
+                        <div id="menu">
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/about">About</a></li>
+                                <li><a href="/register">Register</a></li>
+                                <li><a href="/login">Login</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Banner -->
+        <section id="banner">
+            <div class="inner">
+                <h2>EnviroEats</h2>
+                <p>An intelligent application tailored to assuring the food <br> you eat is healthy and benefits the environment<br />
+                    <br/></p>
+                <ul class="actions special">
+                    <li><a href="#menu" class="button primary">Image Model</a></li>
+                </ul>
+                <ul class="actions special">
+                    <li><a href="#menu" class="button primary">Text Model</a></li>
+                </ul>
+            </div>
+            <a href="#one" class="more scrolly">Learn More</a>
+        </section>
+
+        <!-- One -->
+        <section id="one" class="wrapper style1 special">
+            <div class="inner">
+                <header class="major">
+                    <h2>Our Mission</h2>
+                    <p>This application utilizes two deep learning methods, specifically computer vision and natural language processing to provide an estimate of how healthy and eco-friendly your food is.<br />
+                    </p>
+                </header>
+                <ul class="icons major">
+                    <li><span class="icon solid fa-leaf major style1"><span class="label">Lorem</span></span>
+                    </li>
+                    <li><span class="icon solid fa-heart major style2"><span class="label">Ipsum</span></span>
+                    </li>
+                    <li><span class="icon solid fa-code major style3"><span class="label">Dolor</span></span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Two -->
+        <section id="two" class="wrapper alt style2">
+            <section class="spotlight">
+                <div class="image"><img src="{{ url_for('static', filename='images/food_waste.jpeg') }}" alt="" /></div>
+                <div class="content">
+                    <h2>Eat Smartly</h2>
+                    <p>Food production emissions make up more than a third of global greenhouse gas emissions. By adjusting our diets just a little bit, we can make a huge impact on the environment. </p>
+                </div>
+            </section>
+            <section class="spotlight">
+                <div class="image"><img src="{{ url_for('static', filename='images/eat_healthy.jpeg') }}" alt="" /></div>
+                <div class="content">
+                    <h2>Eat healthy</h2>
+                    <p>The United States has a childhood obesity rate of about 20%. One reason for this is a lack of knowledge on what foods are healthy or not. Our application brings access to healthier recipes while also providing insights about others.</p>
+                </div>
+            </section>
+            <section class="spotlight">
+                <div class="image"><img src="{{ url_for('static', filename='images/analysis.png') }}" alt="" /></div>
+                <div class="content">
+                    <h2>Recipe Analysis</h2>
+                    <p>Although the internet contains access to a wide variety of recipes, it is hard to know if they are truly healthy and environmental friendly. Our models can provide insights about these recipes by taking in ingredients and/or images
+                        and providing reports on how healthy and eco-friendly these recipes are.</p>
+                </div>
+            </section>
+        </section>
+
+        <!-- Three -->
+        <section id="three" class="wrapper style3 special">
+            <div class="inner">
+                <header class="major">
+                    <h2>How It Works</h2>
+                    <p>Our application has a variety of functionalities.</p>
+                </header>
+                <ul class="features">
+                    <li class="icon solid fa-user">
+                        <h3>Create an account</h3>
+                        <p>Simply head to register and create an account. Our login and registration servers are maintained using a MySQL Database.</p>
+                    </li>
+                    <li class="icon solid fa-image">
+                        <h3>Upload an image</h3>
+                        <p>Go to the 'Upload' page and upload your image. Results should be ready in seconds! </p>
+                    </li>
+                    <li class="icon solid fa-align-center">
+                        <h3>Upload any text</h3>
+                        <p>If you want to analyze a recipe instead, head over to the 'Text' page and upload the ingredients of the food. </p>
+                    </li>
+                    <li class="icon solid fa-people-arrows">
+                        <h3>View recipes</h3>
+                        <p>Head over to the view recipes page to see other healthy recipes uploaded by users!</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="cta" class="wrapper style4">
+            <div class="inner">
+                <header>
+                    <h2>The Team</h2>
+                    <p>We are a group of students from MSJHS interested in environmental sustainability and computer science.</p>
+                </header>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons">
+                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                <li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
+            <ul class="copyright">
+                <li>&copy; Untitled</li>
+                <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrolly.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+
+</html>
+{% endblock %}

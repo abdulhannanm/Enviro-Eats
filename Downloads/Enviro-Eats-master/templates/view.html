@@ -1,0 +1,81 @@
+ {% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <noscript><link rel="stylesheet" href="{{ url_for('static', filename='css/noscript.css') }}" /></noscript>
+    <title>Document</title>
+</head>
+
+<body class="is-preloaded">
+    <div id="page-wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <h1><a href="/inhome" style="color: white; text-decoration: none; letter-spacing: 2px; font-size: 15px; font-weight: bold;">ENVIROEATS</a></h1>
+            <nav id="nav">
+                <ul>
+                    <li class="special">
+                        <a href="#menu" class="menuToggle" style="text-decoration: none;"><span>Menu</span></a>
+                        <div id="menu">
+                            <ul>
+                                <li><a href="/inhome">Home</a></li>
+                                <li><a href="/">Upload</a></li>
+                                <li><a href="/view">View</a></li>
+                                <li><a href="/post">Post</a></li>
+                                <li><a href="/logout">Log Out</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    </div>
+
+
+    <article id="main">
+        <header>
+            <h2>View</h2>
+            <p>Look At Other Peoples Healthy Recipes!</p>
+        </header>
+    </article>
+    <div>.</div>
+    {% for row in recipes %}
+    <div style="
+    height: 200px;
+    width: 400px;
+    background-color: #555;
+    display: inline-block;
+    overflow: auto;
+    color: white;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    
+    ">
+        <tr>
+            <div style="color: red; text-align: center; font-weight: bold; ">
+                <td>{{row.name}}</td>
+            </div>
+            <div style="margin-left: 10px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif">
+                <td>{{row.recipe}}<br></td>
+            </div>
+            <div style="font-size: 10px; margin-left: 10px;">
+                <td>POSTED AT {{row.date}}</td>
+            </div>
+        </tr>
+    </div>
+    {% endfor %}
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/jquery.scrolly.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/browser.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/breakpoints.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
+{% endblock %}
